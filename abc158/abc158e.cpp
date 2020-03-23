@@ -22,21 +22,20 @@ int main() {
             }else {
                 int index=0;
                 int flag =0;
+                int leng = 17;
                 int tmp=0;
                 while(!flag){
-                    string s2;
                     if(i-index<17){
                         flag=1;
-                        s2= s1.substr(j+index,i-index);
-                    }else{
-                        s2= s1.substr(j+index,17);
+                        leng = i - index;
                     }
+                    string s2= s1.substr(j+index,leng);
                     ss1 = istringstream(s2);
                     ss1 >> p1;
-                    p1 = tmp*1000000000000000000+p1;
-                    cout <<p1<<endl;
+                    p1 = tmp*pow(10,leng)+p1;
+                    // cout <<p1<<endl;
                     tmp = p1%p;
-                    index += 17;
+                    index += leng;
                 }
                 count += (tmp%p==0);
             }
