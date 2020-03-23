@@ -17,27 +17,45 @@ cout << n << " " << k << endl;
 ```
 
 ### 配列
+[http://vivi.dyndns.org/tech/cpp/vector.html]
 vector  
 ```C++
 vector<int> a(n);
 for (int i = 0; i < n; i++) {
   cin >> a[i];
 }
-```
 
-末尾に追加
-```C++
+//末尾に追加
 a.push_back(2);
-```
 
-ソート
-```C++
+//ソート
 sort(a.begin(),a.end());
 ```
 
+多次元配列  
+[https://atcoder.jp/contests/APG4b/tasks/APG4b_t]
+```C++
+// int型の2次元配列(3×4要素の)の宣言
+vector<vector<int>> data(3, vector<int>(4));
+
+for(int i=0;i<h;i++){
+  for(int j=0;j<w;j++>){
+    cin >> data[i][j];
+  }
+}
+```
+
 ### 文字列
+[https://qiita.com/MasahiroBW/items/3f56b22a079cd3272cd3]
 ```C++
 string s;
+
+//文字列のサイズ  
+s.size();
+
+//一部を取り出す  
+s.substr(3); //n番目以降の文字列を取り出す
+s.substr(2,3); //2番目以降の文字列を3文字取り出す
 ```
 
 ### map
