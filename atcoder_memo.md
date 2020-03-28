@@ -59,6 +59,7 @@ s.substr(2,3); //2番目以降の文字列を3文字取り出す
 ```
 
 ### map
+[https://qiita.com/_EnumHack/items/f462042ec99a31881a81]
 辞書的に使われる。
 ```C++
 map<string,int> s;
