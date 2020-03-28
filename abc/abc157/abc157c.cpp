@@ -3,40 +3,35 @@ using namespace std;
 
 int main() {
     int n,m;cin >> n >> m;
-    vector<int> s(m);
-    vector<int> c(m);
-    vector<int> num(n);
-    // string s1[n];
 
-    int flag=0;
+    string ss;
+    for(int i=0;i<n;i++){
+      ss.push_back('a');
+    }
+
+    int s;
+    int c;
     for(int i=0;i<m;i++){
-        cin >> s[i] >> c[i];
-        if(num[s[i]-1]!=0 && (num[s[i]-1]!=c[i])){
-            flag = 1;
-            break;
+        cin >> s >> c;
+        if(ss[s-1]!='a' && (ss[s-1]!=c+'0')){
+            cout << -1 << endl;
+            return 0;
         }
-        num[s[i]-1]=c[i];
+        ss[s-1]=c+'0';
     }
-    // string s1;
-    // for (int i=0;i<n;i++){
-    //     s1.append((char)num[i]);
-    // }
-
-    // istringstream ss;
-    // ss = istringstream(s1);
-    int ans =0;
-    // ss >> ans;
-    for (int i=0;i<n;i++){
-        ans += num[i]*pow(10,n-i-1);
-        if((i==0) && (ans==0)){
-            flag=1;
-        }
+    for(int i=0;i<ss.size();i++){
+      if(ss[i]=='a'){
+        ss[i]='0';
+      }
     }
-    
-    if(flag){
-        cout << -1 << endl;
-    } else {
-        cout << ans <<endl;
+    if(n==1 && ss[0]=='0'){
+      cout << 0 << endl;
+      return 0;
+    }else if (ss[0]=='0'){
+      cout << -1 << endl;
+      return 0;
     }
-
+    int ans = atoi(ss.c_str());
+    cout << ans << endl;
+    return 0;
 }
