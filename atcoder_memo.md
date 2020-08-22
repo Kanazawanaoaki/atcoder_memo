@@ -30,6 +30,26 @@ a.push_back(2);
 
 //ソート
 sort(a.begin(),a.end());
+
+//要素数
+a.size();
+// std::size_t size = a.size();
+```
+[配列の最大など](https://riptutorial.com/ja/cplusplus/example/11151/%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%AE%E6%9C%80%E5%A4%A7%E3%81%A8%E6%9C%80%E5%B0%8F%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%A8%E3%81%9D%E3%82%8C%E3%81%9E%E3%82%8C%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E8%A6%8B%E3%81%A4%E3%81%91%E3%82%8B)
+```c++
+std::vector<int> v = {5, 2, 8, 10, 9};
+int maxElementIndex = std::max_element(v.begin(),v.end()) - v.begin();
+int maxElement = *std::max_element(v.begin(), v.end());
+
+int minElementIndex = std::min_element(v.begin(),v.end()) - v.begin();
+int minElement = *std::min_element(v.begin(), v.end());
+
+std::cout << "maxElementIndex:" << maxElementIndex << ", maxElement:" << maxElement << '\n';
+std::cout << "minElementIndex:" << minElementIndex << ", minElement:" << minElement << '\n';
+```
+配列のサイズ
+```c++
+
 ```
 
 多次元配列  
