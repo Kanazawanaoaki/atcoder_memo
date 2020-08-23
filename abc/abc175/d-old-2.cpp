@@ -30,19 +30,26 @@ int main() {
       t.push_back(c[now]);
       l_s += c[now];
     }
-
+    // cout << endl;
     // cout << l_s << endl;
-
-    for (int j=0;j<t.size();j++){
-      tmp += t[j];
-      if(j+1>k) break;
-      long long hoge = tmp;
-      if(l_s > 0){
-	long long e = (k-(j+1))/t.size();
-	hoge += l_s * e;
+    if(l_s>0){
+      tmp += l_s * (k/t.size());
+      if(tmp>ans) ans = tmp;
+      for(int j=0;j<(k%t.size());j++){
+	tmp += t[j];
+	if(tmp>ans) ans = tmp;
       }
-      ans = max(ans,hoge);
-    }
+      tmp = l_s * (k/t.size() - 1);
+      for(int j=t.size()-1;j>(t.size()-k%t.size()-1);j--){
+	tmp -= t[j];
+	if(tmp>ans) ans = tmp;
+      }
+    } else {
+      for(int j=0;j<t.size();j++){
+	tmp += t[j];
+	if(tmp>ans) ans = tmp;
+      }
+    } 
   }
   
   cout << ans << endl;
