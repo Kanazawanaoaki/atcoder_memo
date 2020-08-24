@@ -28,8 +28,15 @@ for (int i = 0; i < n; i++) {
 //末尾に追加
 a.push_back(2);
 
+//末尾の要素を除く
+a.pop_back();
+
 //ソート
 sort(a.begin(),a.end());
+
+//降順のソート
+sort(a.begin(),a.end(),greater<int>());
+
 
 //要素数
 a.size();
@@ -46,10 +53,6 @@ int minElement = *std::min_element(v.begin(), v.end());
 
 std::cout << "maxElementIndex:" << maxElementIndex << ", maxElement:" << maxElement << '\n';
 std::cout << "minElementIndex:" << minElementIndex << ", minElement:" << minElement << '\n';
-```
-配列のサイズ
-```c++
-
 ```
 
 多次元配列  
