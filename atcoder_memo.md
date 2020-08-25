@@ -55,7 +55,7 @@ std::cout << "maxElementIndex:" << maxElementIndex << ", maxElement:" << maxElem
 std::cout << "minElementIndex:" << minElementIndex << ", minElement:" << minElement << '\n';
 ```
 
-多次元配列  
+2次元配列  
 [https://atcoder.jp/contests/APG4b/tasks/APG4b_t]
 ```C++
 // int型の2次元配列(3×4要素の)の宣言
@@ -64,6 +64,17 @@ vector<vector<int>> data(3, vector<int>(4));
 for(int i=0;i<h;i++){
   for(int j=0;j<w;j++>){
     cin >> data[i][j];
+  }
+}
+```
+多次元配列
+```C++
+vector<vector<vector<long long>>> s(R, vector<vector<long long>>(C ,vector<long long>(K)));
+for(int i=0;i<R;i++){
+  for(int j=0;j<C;j++){
+    for(int k=0;k<K;k++){
+      cout << s[i][j][k];
+    }
   }
 }
 ```
