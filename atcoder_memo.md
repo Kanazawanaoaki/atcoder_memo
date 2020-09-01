@@ -31,11 +31,17 @@ a.push_back(2);
 //末尾の要素を除く
 a.pop_back();
 
-//ソート
+//昇順ソート
 sort(a.begin(),a.end());
 
 //降順のソート
 sort(a.begin(),a.end(),greater<int>());
+sort(a.rbegin(), a.rend());
+
+//絶対値が小さい順にソート
+sort(a.begin(), a.end(), [](int x, int y) {
+	return abs(x) < abs(y);
+});
 
 
 //要素数
@@ -114,8 +120,6 @@ for (auto x : s){
 }
 ```
 
-
-
 ## その他
 for文  
 ```C++
@@ -135,4 +139,45 @@ while文
 while (条件式) {
   処理
 }
+```
+
+## MOD
+```C++
+using ll = long long;
+const int mod = 1000000007;
+struct mint {
+  ll x; // typedef long long ll;
+  mint(ll x=0):x((x%mod+mod)%mod){}
+  mint operator-() const { return mint(-x);}
+  mint& operator+=(const mint a) {
+    if ((x += a.x) >= mod) x -= mod;
+    return *this;
+  }
+  mint& operator-=(const mint a) {
+    if ((x += mod-a.x) >= mod) x -= mod;
+    return *this;
+  }
+  mint& operator*=(const mint a) { (x *= a.x) %= mod; return *this;}
+  mint operator+(const mint a) const { return mint(*this) += a;}
+  mint operator-(const mint a) const { return mint(*this) -= a;}
+  mint operator*(const mint a) const { return mint(*this) *= a;}
+  mint pow(ll t) const {
+    if (!t) return 1;
+    mint a = pow(t>>1);
+    a *= a;
+    if (t&1) a *= *this;
+    return a;
+  }
+
+  // for prime mod
+  mint inv() const { return pow(mod-2);}
+  mint& operator/=(const mint a) { return *this *= a.inv();}
+  mint operator/(const mint a) const { return mint(*this) /= a;}
+};
+istream& operator>>(istream& is, mint& a) { return is >> a.x;}
+ostream& operator<<(ostream& os, const mint& a) { return os << a.x;}
+
+// 使用例
+mint ans = 1;
+ans *= 5;
 ```
